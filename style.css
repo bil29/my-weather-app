@@ -1,0 +1,29 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  padding: 40px 0 15px;
+}
+
+h2 {
+  font-size: 60px;
+}
+
+li {
+  list-style: none;
+  text-align: center;
+}
+
+.today-weather {
+  width: 20%;
+}
+
+.weather-app {
+  border: 1px solid bisque;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 20px;
+  max-width: 600px;
+  margin: auto;
+}
