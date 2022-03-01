@@ -69,12 +69,6 @@ function displayFahrenheitTemp(event) {
 celsiusTemp = response.data.main.temp;
 let celsiusTemp = null;
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
-}
-
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
@@ -89,8 +83,5 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
 
 searchCity("New York");
