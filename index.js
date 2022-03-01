@@ -66,7 +66,6 @@ function displayFahrenheitTemp(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
-celsiusTemp = response.data.main.temp;
 let celsiusTemp = null;
 
 let dateElement = document.querySelector("#date");
