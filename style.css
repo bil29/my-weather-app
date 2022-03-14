@@ -31,3 +31,7 @@ li {
 .units a {
   color: black;
 }
+
+.weather-forecast-min {
+  opacity: 0.5;
+}
