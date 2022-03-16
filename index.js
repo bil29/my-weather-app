@@ -23,32 +23,49 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
-  let forcastElement = document.querySelector("#forecast");
-  let days = ["Thu", "Fri", "Sat", "Sun"];
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-3 text-center">
-              <p class="weather-forecast-date">${day}</p>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-3 text-center">
+              <p class="weather-forecast-date">${formatDay(forecastDay.dt)}</p>
               <ul class="p-0">
                 <li>
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3WoLSuY3DC3nzbqzobpGx0EeNp4Xlb981WA&usqp=CAU"
+                    src="https://openweathermap.org/img/wn/${
+                      forecast.weather[0].icon
+                    }@2x.png"
                     alt=""
                     width="38"
                   />
                 </li>
-                <li class="weather-forecast-max">48°</li>
-                <li class="weather-forecast-min">20°</li>
+                <li class="weather-forecast-max">${Math.round(
+                  forecastDay.temp.max
+                )}°</li>
+                <li class="weather-forecast-min">${Math.round(
+                  forecastDay.temp.min
+                )}°</li>
               </ul>
             </div>`;
+    }
 
     forecastHTML = forecastHTML + `</div>`;
   });
-  forcastElement.innerHTML = forecastHTML;
+
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
