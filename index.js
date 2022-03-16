@@ -46,7 +46,7 @@ function displayForecast(response) {
                 <li>
                   <img
                     src="https://openweathermap.org/img/wn/${
-                      forecast.weather[0].icon
+                      forecastDay.weather[0].icon
                     }@2x.png"
                     alt=""
                     width="38"
@@ -61,10 +61,8 @@ function displayForecast(response) {
               </ul>
             </div>`;
     }
-
-    forecastHTML = forecastHTML + `</div>`;
   });
-
+  forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
